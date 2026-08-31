@@ -1,0 +1,502 @@
+/* =========================================================
+   1. VARIABLES
+========================================================= */
+
+:root {
+  --bg: #f7f7f5;
+  --bg-alt: #eceff1;
+  --white: #ffffff;
+  --text: #1f1f1f;
+  --muted: #6c665f;
+  --line: rgba(31, 31, 31, 0.08);
+  --bg-sections: #eef0ef;
+  --bg-sections-low: #f3f1ee;
+
+  --primary: #b3131b;
+  --primary-dark: #7f0d13;
+  --gold-soft: #d7c3aa;
+
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 14px;
+
+  --shadow-soft: 0 18px 45px rgba(23, 18, 15, 0.07);
+  --shadow-medium: 0 24px 60px rgba(23, 18, 15, 0.10);
+  --shadow-strong: 0 30px 80px rgba(23, 18, 15, 0.14);
+
+  --container: 1240px;
+}
+
+/* =========================================================
+   1. HERO SERVICIOS FULL WIDTH
+========================================================= */
+
+/* =========================================================
+   HERO SERVICIOS - VARIANTE PROPIA
+========================================================= */
+
+.services-hero-alt {
+  position: relative;
+  min-height: calc(100vh - 86px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+.services-hero-alt::before {
+  content: "Servicios";
+  position: absolute;
+  z-index: 2;
+  left: max(1rem, calc((100vw - var(--container)) / 2 - 48px));
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.services-hero-alt::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: max(1rem, calc((100vw - var(--container)) / 2 - 18px));
+  top: 18%;
+  bottom: 18%;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, transparent, #b3131b 18%, #d7c3aa 52%, transparent);
+}
+
+.services-hero-alt-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(18,17,16,0.84) 0%, rgba(18,17,16,0.66) 48%, rgba(18,17,16,0.44) 100%),
+    url("../img/despacho1.jpg") center/cover no-repeat;
+}
+
+.services-hero-alt-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 42%, rgba(179,19,27,0.24), transparent 34%),
+    radial-gradient(circle at 78% 44%, rgba(255,255,255,0.08), transparent 26%),
+    linear-gradient(180deg, rgba(18,17,16,0.04), rgba(18,17,16,0.24));
+}
+
+.services-hero-alt-content {
+  position: relative;
+  z-index: 2;
+  padding: 5rem 0 4rem;
+}
+
+.services-hero-alt-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 520px;
+  gap: 4rem;
+  align-items: center;
+}
+
+.services-hero-alt-copy {
+  max-width: 760px;
+}
+
+.services-hero-label {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border-color: rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px);
+}
+
+.services-hero-label::before {
+  box-shadow: 0 0 0 5px rgba(255,255,255,0.12);
+}
+
+.services-hero-alt-copy h1 {
+  margin: 1.1rem 0 1.2rem;
+  max-width: 10ch;
+  font-size: clamp(3.2rem, 6vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  color: #fff;
+}
+
+.services-hero-alt-copy p {
+  max-width: 58ch;
+  color: rgba(255,255,255,0.82);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* PANEL DERECHO DIFERENTE AL INDEX */
+
+.services-hero-alt-panel {
+  padding: 1.1rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-top: 4px solid rgba(179, 19, 27, 0.82);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.22);
+}
+
+.services-panel-heading {
+  padding: 1.2rem 1.2rem 1rem;
+}
+
+.services-panel-heading span {
+  display: inline-flex;
+  margin-bottom: 0.65rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(179,19,27,0.22);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.services-panel-heading strong {
+  display: block;
+  max-width: 12ch;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  line-height: 1.05;
+  color: #fff;
+}
+
+.services-panel-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.services-panel-list a {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 0.9rem;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.88);
+  color: #1f1f1f;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.services-panel-list a:hover {
+  transform: translateX(6px);
+  background: #fff;
+  box-shadow: 0 18px 38px rgba(0,0,0,0.14);
+}
+
+.services-panel-list span {
+  width: 46px;
+  height: 46px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  background: rgba(179,19,27,0.12);
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.services-panel-list strong {
+  font-size: 1rem;
+}
+
+/* BANDA INFERIOR */
+
+.services-hero-alt-footer {
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 0;
+  overflow: hidden;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.13);
+  border-left: 4px solid rgba(179, 19, 27, 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.services-hero-alt-footer article {
+  padding: 1.25rem 1.35rem;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.services-hero-alt-footer article:last-child {
+  border-right: 0;
+}
+
+.services-hero-alt-footer strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #fff;
+}
+
+.services-hero-alt-footer span {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* =========================================================
+   2. INTRO
+========================================================= */
+
+.services-intro {
+  padding-top: 32px;
+  padding-bottom: 36px;
+  background:
+    linear-gradient(90deg, rgba(127, 13, 19, 0.035) 0 1px, transparent 1px 100%),
+    var(--bg-sections);
+  background-size: 84px 84px;
+}
+
+/* =========================================================
+   3. ÁREAS DE SERVICIO
+========================================================= */
+
+.services-detail{
+  background:
+    linear-gradient(90deg, rgba(127, 13, 19, 0.035) 0 1px, transparent 1px 100%),
+    var(--bg-sections);
+  background-size: 84px 84px;
+}
+
+.services-detail {
+  padding-top: 36px;
+}
+
+.services-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.service-detail-card {
+  padding: 1.5rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(31, 31, 31, 0.08);
+  border-top: 3px solid rgba(127, 13, 19, 0.34);
+  box-shadow: 0 14px 30px rgba(23, 18, 15, 0.045);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.service-detail-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 42px rgba(23, 18, 15, 0.075);
+  border-color: rgba(179, 19, 27, 0.16);
+}
+
+.service-detail-number {
+  margin-bottom: 0.85rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.6rem;
+  line-height: 1;
+  font-weight: 700;
+  color: rgba(127, 13, 19, 0.22);
+}
+
+.service-detail-card h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1.28rem;
+}
+
+.service-detail-card p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.service-list {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.service-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  color: #4b4641;
+}
+
+.service-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.68rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+/* =========================================================
+   4. BENEFICIOS / GARANTÍAS
+========================================================= */
+
+.service-benefits {
+  background: #ffffff;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.benefit-card {
+  padding: 1.5rem;
+  border-radius: 14px;
+  background: rgba(247,247,245,0.9);
+  border: 1px solid rgba(31,31,31,0.07);
+  box-shadow: none;
+}
+
+.benefit-card h3 {
+  margin-bottom: 0.7rem;
+  font-size: 1.18rem;
+}
+
+.benefit-card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* =========================================================
+   5. CTA FINAL
+========================================================= */
+
+.services-cta{
+  background:
+    linear-gradient(180deg, #ffffff, #e9ecec);
+}
+
+.services-cta-box {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2.5rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.84);
+  border: 1px solid rgba(31,31,31,0.07);
+  border-top: 4px solid rgba(127, 13, 19, 0.55);
+  box-shadow: 0 18px 42px rgba(23, 18, 15, 0.075);
+}
+
+.services-cta-box .section-label {
+  margin-bottom: 0.8rem;
+}
+
+.services-cta-box h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.services-cta-box p {
+  max-width: 60ch;
+  margin: 0 auto 1.5rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* =========================================================
+   6. RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .services-hero-alt::before,
+  .services-hero-alt::after {
+    display: none;
+  }
+
+  .services-hero-alt-grid {
+    grid-template-columns: 1fr;
+    gap: 2.3rem;
+  }
+
+  .services-hero-alt-panel {
+    max-width: 760px;
+  }
+
+  .services-hero-alt-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .services-hero-alt-footer article {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .services-hero-alt-footer article:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 860px) {
+  .services-page-hero-text {
+    font-size: 1rem;
+  }
+  .services-hero-alt-copy h1 {
+    font-size: clamp(2.8rem, 10vw, 4.4rem);
+    max-width: 10ch;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-intro {
+    padding-top: 12px;
+    padding-bottom: 24px;
+  }
+
+  .services-detail {
+    padding-top: 24px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-cta-box {
+    padding: 1.6rem;
+  }
+
+  .services-hero-alt {
+    min-height: auto;
+  }
+
+  .services-hero-alt-content {
+    padding: 3.5rem 0 3rem;
+  }
+
+  .services-hero-alt-panel {
+    border-radius: 16px;
+  }
+
+  .services-panel-heading strong {
+    font-size: 1.6rem;
+  }
+
+  .services-panel-list a {
+    grid-template-columns: 40px 1fr;
+  }
+
+  .services-panel-list span {
+    width: 40px;
+    height: 40px;
+  }
+
+  .services-hero-alt-footer {
+    margin-top: 2rem;
+  }
+}
